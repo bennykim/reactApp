@@ -1,0 +1,15 @@
+.colors {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: rgba(41, 56, 75, 1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.logo {
+    position: absolute;
+    bottom: 24px;
+    width: 100px;
+    height: 100px;
+}

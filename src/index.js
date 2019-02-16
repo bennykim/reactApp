@@ -3,4 +3,5 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import Colors from './components/Colors';
 
-ReactDOM.render(<Colors />, document.getElementById('root'));
+let rootEl = document.getElementById('root');
+ReactDOM.render(<Colors />, rootEl);

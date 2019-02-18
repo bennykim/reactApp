@@ -15,7 +15,7 @@
 .colors .color-list {
   text-align: left;
   margin: 24px;
-  border: 1px solid #37ad70;
+  border: 1px solid #56D5FA;
   border-radius: 5px;
 }
 .colors .color-list .color-txt {
@@ -25,7 +25,7 @@
 }
 .colors .color-list button {
   float: right;
-  background: #37ad70;
+  background: #56D5FA;
   border: 0;
   border-radius: 4px;
   margin-right: 24px;
@@ -50,7 +50,7 @@
 }
 .colors .add-color button {
   flex: 1;
-  background: #37ad70;
+  background: #56D5FA;
   border: 0;
   border-radius: 4px;
   font-size: 20px;

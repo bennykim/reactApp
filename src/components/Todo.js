@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import logo from '../assets/logo.svg';
+import React, { Component } from 'react';
 import '../css/todo.css';
 
 class Todo extends Component {
@@ -75,8 +74,6 @@ class Todo extends Component {
                     :
                     <p className="msg">The list is full.</p>
                 }
-
-                <img className="logo" src={logo} alt="React logo"/>
             </div>
         )
     }

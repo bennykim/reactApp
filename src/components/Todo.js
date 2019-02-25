@@ -7,41 +7,41 @@ class Todo extends Component {
         this.state = {
             todo: '',
             todoList: []
-        }
-    }
+        };
+    };
 
     componentDidMount() {
-        this.refs.input.focus()
-    }
+        this.refs.input.focus();
+    };
 
     handleChange = (e) => {
         this.setState({
             todo: e.target.value
-        })
-    }
+        });
+    };
 
     handleKeyPress = (e) => {
-        if (e.key === 'Enter') return this.addTodo()
-    }
+        if (e.key === 'Enter') return this.addTodo();
+    };
 
     addTodo = () => {
         if (this.state.todo === '') return
         this.setState({
             todo: '',
             todoList: [...this.state.todoList, this.state.todo]
-        })
-    }
+        });
+    };
 
     deleteTodo = (idx) => {
         this.setState({
             todoList: this.state.todoList.filter((todo, i) => i !== idx)
-        })
-    }
+        });
+    };
 
     render() {
         return (
             <div className="todo">
-                <h2>React</h2>
+                <h2>Todo</h2>
 
                 { this.state.todoList.length > 0 ?
                     <ul className="todo-list">
@@ -66,7 +66,7 @@ class Todo extends Component {
                             name="inputTodo"
                             value={this.state.todo}
                             maxLength="15"
-                            placeholder="Please enter a todo"
+                            placeholder="What needs to be done?"
                             onChange={this.handleChange}
                             onKeyPress={this.handleKeyPress} />
                         <button type="button" name="button" onClick={this.addTodo}>+</button>
@@ -76,7 +76,7 @@ class Todo extends Component {
                 }
             </div>
         )
-    }
-}
+    };
+};
 
 export default Todo;

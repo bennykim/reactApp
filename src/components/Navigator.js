@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/navigator.css'
+import '../css/navigator.css';
 
 class Navigator extends Component{
     render() {
@@ -10,7 +10,10 @@ class Navigator extends Component{
         }, {
             path: '/grid',
             name: 'Grid'
-        }]
+        }, {
+            path: '/modals',
+            name: 'Modals'
+        }];
 
         return (
             <div className="navigator">
@@ -23,7 +26,7 @@ class Navigator extends Component{
                 </ul>
             </div>
         )
-    }
-}
+    };
+};
 
-export default Navigator
+export default Navigator;

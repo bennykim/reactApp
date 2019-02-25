@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import '../css/grid.css'
+import '../css/grid.css';
 
 class Grid extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             sortKey: '',
             searchKey: '',
@@ -21,62 +21,64 @@ class Grid extends Component {
             }, {
                 name: 'Mark', age: 25, weight: 80
             }]
-        }
-    }
+        };
+    };
 
     componentDidMount() {
-        let sortOrders = {}
+        let sortOrders = {};
         this.state.gridColumns.forEach((key) => {
             sortOrders[key] = 1
-        })
+        });
         this.setState({
             sortOrders: sortOrders
-        })
-    }
+        });
+    };
 
     filterData = () => {
-        let data = this.state.gridData
-        let sortKey = this.state.sortKey
-        let searchKey = this.state.searchKey
-        let order = this.state.sortOrders[sortKey] || 1
+        let data = this.state.gridData;
+        let sortKey = this.state.sortKey;
+        let searchKey = this.state.searchKey;
+        let order = this.state.sortOrders[sortKey] || 1;
 
         if (searchKey) {
             data = data.filter((row) => {
                 return Object.keys(row).some((key) => {
                    return String(row[key]).toLowerCase().indexOf(searchKey) > -1
-                })
-            })
-        }
+               });
+            });
+        };
         if (sortKey) {
             data = data.sort((a, b) => {
                 a = a[sortKey]
                 b = b[sortKey]
                 return (a === b ? 0 : a > b ? 1 : -1) * order
-            })
-        }
+            });
+        };
 
-        return data
-    }
+        return data;
+    };
 
     handleChange = (e) => {
         this.setState({
             searchKey: e.target.value
-        })
-    }
+        });
+    };
 
     sortBy = (key) => {
-        let sortOrders = Object.assign({}, this.state.sortOrders)
-        sortOrders[key] = sortOrders[key] * -1
+        let sortOrders = Object.assign({}, this.state.sortOrders);
+        sortOrders[key] = sortOrders[key] * -1;
 
         this.setState({
             sortKey: key,
             sortOrders
-        })
-    }
+        });
+    };
 
     render() {
         return (
             <div className="grid">
+                <h2>Grid</h2>
+
                 <input
                     type="text"
                     name="search"
@@ -110,7 +112,7 @@ class Grid extends Component {
                 </table>
             </div>
         )
-    }
-}
+    };
+};
 
 export default Grid;

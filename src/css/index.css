@@ -10,7 +10,7 @@ html #root, body #root {
   height: 100%;
   min-width: 500px;
   min-height: 500px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=index.css.map */

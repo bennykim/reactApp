@@ -13,6 +13,9 @@ class Navigator extends Component{
         }, {
             path: '/modals',
             name: 'Modals'
+        }, {
+            path: '/counter',
+            name: 'Counter'
         }];
 
         return (

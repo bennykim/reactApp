@@ -1,3 +1,9 @@
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+
+export const increment = () => ({type: INCREMENT});
+export const decrement = () => ({type: DECREMENT});
+
 const initialState = {
     title: '',
     result: 0
@@ -19,6 +25,7 @@ const counter = (state = initialState, action) => {
                 result: state.result -= 1
             }
             break;
+        default:
     };
     return state;
 };

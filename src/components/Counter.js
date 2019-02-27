@@ -1,46 +1,27 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { increment, decrement } from '../store/actions/counterActions'
 
 import '../css/counter.css'
 
 class Counter extends Component {
-    incrementCount = () => {
-        this.props.increment()
-    };
-    decrementCount = () => {
-        this.props.decrement()
-    };
+    addCount = (type) => {
+        const { onIncrement, onDecrement } = this.props
+        if (type === 'increase') return onIncrement()
+        if (type === 'decrease') return onDecrement()
+    }
     render() {
+        const { count } = this.props
+
         return (
             <div className="counter">
-                <h2>Counter (redux)</h2>
-                <button className="button-increase" onClick={this.incrementCount}>+</button>
-                <span className="count-value">{this.props.count.result}</span>
-                <button className="button-decrease" onClick={this.decrementCount}>-</button>
-                <div className="count-type">
-                    Count title : <span className="type-txt">{this.props.count.title || 'waiting..'}</span>
-                </div>
+            <h2>Counter (redux)</h2>
+            <button className="button-increase" onClick={this.addCount.bind(this, 'increase')}>+</button>
+            <span className="count-value">{count.result}</span>
+            <button className="button-decrease" onClick={this.addCount.bind(this, 'decrease')}>-</button>
+            <div className="count-type">
+                Count title : <span className="type-txt">{count.title || 'waiting..'}</span>
             </div>
-        )
-    };
+            </div>
+    )};
 };
 
-const mapStateToProps = (state) => {
-    return {
-        count: state.counter
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        increment: () => {
-            dispatch(increment())
-        },
-        decrement: () => {
-            dispatch(decrement())
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default Counter;

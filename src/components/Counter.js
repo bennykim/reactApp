@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
 import '../css/counter.css'
 
-class Counter extends Component {
-    addCount = (type) => {
-        const { onIncrement, onDecrement } = this.props
-        if (type === 'increase') return onIncrement()
-        if (type === 'decrease') return onDecrement()
-    }
-    render() {
-        const { count } = this.props
+@inject((store) => ({ counter: store.counter}))
 
+@observer class Counter extends Component{
+    render() {
+        const { count, increase, decrease } = this.props.counter;
         return (
             <div className="counter">
-            <h2>Counter (redux)</h2>
-            <button className="button-increase" onClick={this.addCount.bind(this, 'increase')}>+</button>
-            <span className="count-value">{count.result}</span>
-            <button className="button-decrease" onClick={this.addCount.bind(this, 'decrease')}>-</button>
-            <div className="count-type">
-                Count title : <span className="type-txt">{count.title || 'waiting..'}</span>
+                <h2>Counter (mobx)</h2>
+                <button className="button-increase" onClick={increase}>+</button>
+                <span className="count-value">{count.value}</span>
+                <button className="button-decrease" onClick={decrease}>-</button>
+                <div className="count-title">
+                    Count title : <span className="title-txt">{count.title || 'waiting..'}</span>
+                </div>
             </div>
-            </div>
-    )};
-};
+        )
+    }
+}
 
 export default Counter;

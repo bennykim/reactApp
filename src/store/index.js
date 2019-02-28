@@ -1,8 +1,9 @@
-import { createStore, applyMiddleware} from 'redux';
-import { createLogger } from 'redux-logger';
-import reducers from './modules';
+import Counter from './modules/counter';
 
-const middleware = applyMiddleware(createLogger())
-const store = createStore(reducers, middleware);
+class Store {
+    constructor() {
+        this.counter = new Counter(this);
+    }
+}
 
-export default store;
+export default Store;

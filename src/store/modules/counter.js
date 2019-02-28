@@ -1,33 +1,23 @@
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+import { observable, action } from 'mobx';
 
-export const increment = () => ({type: INCREMENT});
-export const decrement = () => ({type: DECREMENT});
+export default class Counter {
+    @observable count = {
+        title: '',
+        value: 0
+    }
 
-const initialState = {
-    title: '',
-    result: 0
-};
+    constructor(root) {
+        this.root = root;
+    }
 
-const counter = (state = initialState, action) => {
-    switch (action.type) {
-        case 'INCREMENT':
-            state = {
-                ...state,
-                title: 'increment',
-                result: state.result += 1
-            }
-            break;
-        case 'DECREMENT':
-            state = {
-                ...state,
-                title: 'decrement',
-                result: state.result -= 1
-            }
-            break;
-        default:
+    @action increase = () => {
+        console.log(this.root);
+        this.count.value++;
+        this.count.title = 'increment';
     };
-    return state;
-};
 
-export default counter;
+    @action decrease = () => {
+        this.count.value--;
+        this.count.title = 'decrement';
+    };
+};

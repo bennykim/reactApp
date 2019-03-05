@@ -16,6 +16,9 @@ class Navigator extends Component{
         }, {
             path: '/counter',
             name: 'Counter'
+        }, {
+            path: '/async',
+            name: 'Async'
         }];
 
         return (

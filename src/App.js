@@ -5,6 +5,7 @@ import Todo from './components/Todo';
 import Grid from './components/Grid';
 import Modals from './components/Modals';
 import Counter from './components/Counter';
+import Async from './components/Async';
 import Navigator from './components/Navigator';
 
 import logo from './assets/logo.svg';
@@ -21,6 +22,7 @@ class App extends Component{
                     <Route path="/grid" component={Grid} />
                     <Route path="/modals" component={Modals} />
                     <Route path="/counter" component={Counter} />
+                    <Route path="/async" component={Async} />
 
                     <img className="logo" src={logo} alt="React logo"/>
                 </div>

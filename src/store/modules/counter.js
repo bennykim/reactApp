@@ -11,7 +11,6 @@ export default class Counter {
     }
 
     @action increase = () => {
-        console.log(this.root);
         this.count.value++;
         this.count.title = 'increment';
     };

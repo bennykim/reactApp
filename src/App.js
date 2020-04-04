@@ -12,23 +12,43 @@ import logo from './assets/logo.svg';
 import './css/app.css';
 
 class App extends Component{
-    render() {
-        return (
-            <BrowserRouter>
-                <div className="app">
-                    <Navigator />
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="app">
+          <Navigator />
 
-                    <Route exact path="/" component={Todo} />
-                    <Route path="/grid" component={Grid} />
-                    <Route path="/modals" component={Modals} />
-                    <Route path="/counter" component={Counter} />
-                    <Route path="/async" component={Async} />
+          <Route
+            exact
+            path="/"
+            component={Todo}
+          />
+          <Route
+            component={Grid}
+            path="/grid"
+          />
+          <Route
+            component={Modals}
+            path="/modals"
+          />
+          <Route
+            path="/counter"
+            component={Counter}
+          />
+          <Route
+            path="/async"
+            component={Async}
+          />
 
-                    <img className="logo" src={logo} alt="React logo"/>
-                </div>
-            </BrowserRouter>
-        )
-    }
+          <img
+            className="logo"
+            src={logo}
+            alt="React logo"
+          />
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
